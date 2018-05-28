@@ -1,3 +1,9 @@
+# Summary from second Cloudnative meetup.
+
+Photos can be found on [Facebook](https://www.facebook.com/pg/cloudnativeczechia/photos/?tab=album&album_id=220224011897449).
+
+## Talks:
+
 1) Peter Malina - Road to Kubernetes
 Kubernetes became one of todays big buzzwords. However, its extremely diverse feature-set makes it hard for teams to decide many times. I will give a brief information on where to start and how to decide what's important on the way to adopt Kubernetes.
 
