@@ -1,4 +1,4 @@
-# Summary from our first Cloud Native meetup at [Živo u Palečka](http://www.upalecka.cz/program.html).
+# Summary of the first Cloud Native Czechia meetup at [Živo u Palečka](http://www.upalecka.cz/program.html).
 
 Photos can be found on our [Facebook](https://www.facebook.com/CloudNativecz-209534252966425). 
 

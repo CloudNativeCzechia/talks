@@ -1,6 +1,6 @@
-# Summary from second Cloudnative meetup.
+# Summary of the second Cloud Native Czechia meetup.
 
-Photos can be found on [Facebook](https://www.facebook.com/pg/cloudnativeczechia/photos/?tab=album&album_id=220224011897449).
+Photos can be found on our [Facebook](https://www.facebook.com/pg/cloudnativeczechia/photos/?tab=album&album_id=220224011897449).
 
 ## Talks:
 
