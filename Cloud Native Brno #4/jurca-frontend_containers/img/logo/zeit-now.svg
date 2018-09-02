@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" style="background: #000000;">
+    <title>Zeit - Rainbow logo</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#9E2D2D" offset="0%"></stop>
+            <stop stop-color="#69B47C" offset="28.4737723%"></stop>
+            <stop stop-color="#00FFDE" offset="53.7029656%"></stop>
+            <stop stop-color="#FF00BF" offset="78.7527902%"></stop>
+            <stop stop-color="#E5FF00" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Multi-color" stroke-width="4" stroke="url(#linearGradient-1)">
+            <g id="Triangle-3-+-zeit-+-Rectangle-27" transform="translate(143.000000, 161.000000)">
+                <polygon id="Triangle-3" points="111.009024 0.275471698 222.018049 188.984906 0 188.984906"></polygon>
+                <polygon id="Triangle-3" points="111.009024 0.275471698 222.018049 188.984906 0 188.984906"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

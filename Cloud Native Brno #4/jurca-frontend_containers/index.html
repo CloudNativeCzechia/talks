@@ -1,0 +1,552 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Cloud native Brno #4</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			img {
+				border: none !important;
+				width: auto !important;
+				height: auto !important;
+
+				background: none !important;
+
+				box-shadow: none !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Frontend, containers &amp; practices</h1>
+					<h3>Cloud Native Brno #4</h3>
+					<p><small>Martin Jurča, <a href="https://github.com/jurca">github.com/jurca</a></small></p>
+				</section>
+				<section>
+					<h2>About me</h2>
+					<div style="display: flex;">
+						<img src="img/me.jpg" alt="me" style="width: 270px !important; height: 383px !important; object-fit: cover; object-position: center center;">
+						<div style="margin-left: 30px; text-align: left;">
+							<p>Martin Jurča</p>
+							<p>Seznam.cz, a.s.</p>
+							<p>
+								Homepage depeloper, full stack
+								<span class="fragment">(focus on frontend)</span>
+							</p>
+							<p class="fragment">Doing JS for 14 years now</p>
+							<p class="fragment">Programming for 23 years</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div style="display: flex; align-items: center;">
+						<img src="img/logo/seznam.svg" alt="Seznam.cz" style="margin-right: 50px; width: auto !important; height: 100px !important;">
+						<img src="img/krasty.png" alt="" style="width: auto !important; height: 600px !important;">
+					</div>
+				</section>
+				<section>
+					<h2>About me</h2>
+					<p class="fragment">hiking</p>
+					<p class="fragment">open source</p>
+					<p class="fragment">game design</p>
+					<p class="fragment">hypothesising what-ifs</p>
+				</section>
+				<section>
+					<h2>So you need a frontend&hellip;</h2>
+					<ul>
+						<li class="fragment">devices?</li>
+						<li class="fragment">target audience?</li>
+						<li class="fragment">type &amp; scale of content?</li>
+					</ul>
+				</section>
+				<section>
+					<h2>The journey of Seznam.cz into the cloud</h2>
+				</section>
+				<section>
+					<h2>There are different tools fit for different uses</h2>
+				</section>
+				<section>
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<img src="img/logo/php.svg" alt="PHP">
+						<img src="img/logo/bootstrap.svg" alt="bootstrap" style="margin: 0 100px; width: 1400px !important;">
+						<img src="img/logo/jquery.svg" alt="jQuery">
+					</div>
+				</section>
+				<section>
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<img src="img/logo/angular.svg" alt="angular">
+						<img src="img/logo/react.svg" alt="react" style="margin: 0 0 0 100px;">
+						<img src="img/logo/vue.svg" alt="vue" style="margin: 0 0 0 100px;">
+						<img src="img/logo/polymer.svg" alt="vue" style="margin: 0 100px;">
+						<img src="img/logo/ember.svg" alt="ember">
+					</div>
+					<div class="fragment" style="display: flex; justify-content: space-around; align-items: center;">
+						<img src="img/logo/grunt.svg" alt="grunt" style="height: 100px !important;">
+						<img src="img/logo/gulp.svg" alt="gulp" style="height: 100px !important;">
+						<img src="img/logo/browserify.svg" alt="browserify" style="height: 100px !important;">
+						<img src="img/logo/webpack.svg" alt="webpack" style="height: 100px !important;">
+					</div>
+				</section>
+				<section data-background="img/everything-js.png">
+					<h2 style="text-shadow: 0 0 8px black;">How it feels to learn JavaScript in 20##</h2>
+				</section>
+				<section>
+					<h2>
+						How it feels to learn Cloud&nbsp;in&nbsp;20##
+					</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center; height: 100px;">
+						<img src="img/logo/openshift.svg" alt="openshift">
+						<img src="img/logo/lxc.png" alt="lxc">
+						<img src="img/logo/aws.svg" alt="aws">
+						<img src="img/logo/azure.svg" alt="azure">
+					</div>
+					<div style="display: flex; margin: 70px 0 0; justify-content: space-between; align-items: center; height: 100px;">
+						<img src="img/logo/docker.svg" alt="docker">
+						<img src="img/logo/docker-swarm.png" alt="doker swarm">
+						<img src="img/logo/marathon.png" alt="marathon">
+						<img src="img/logo/mesos.svg" alt="mesos">
+						<img src="img/logo/zeit-now.svg" alt="zeit now">
+					</div>
+					<div style="display: flex; margin: 70px 0; justify-content: space-between; align-items: center; height: 100px;">
+						<img src="img/logo/kubernets.svg" alt="kubernetes">
+						<img src="img/logo/rkt.svg" alt="rkt">
+						<img src="img/logo/openstack.svg" alt="openstack">
+						<img src="img/logo/containerd.png" alt="containerd">
+					</div>
+				</section>
+				<section>
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<img src="img/logo/php.svg" alt="PHP">
+						<img src="img/logo/bootstrap.svg" alt="bootstrap" style="margin: 0 100px; width: 1400px !important;">
+						<img src="img/logo/jquery.svg" alt="jQuery">
+					</div>
+				</section>
+				<section>
+					<div style="display: flex; justify-content: space-between; align-items: center; height: 150px;">
+						<svg width="164" height="100" viewBox="0 0 148 90" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M34.992 23.495h27.855v2.219H37.546v16.699h23.792v2.219H37.546v18.334h25.591v2.219H34.992v-41.69zm30.35 0h2.96l13.115 18.334 13.405-18.334L113.055.207 83.1 43.756l15.436 21.429H95.46L81.417 45.683 67.316 65.185h-3.018L79.85 43.756 65.343 23.495zm34.297 2.219v-2.219h31.742v2.219h-14.623v39.47h-2.554v-39.47H99.64zM.145 23.495h3.192l44.011 66.003L29.16 65.185 2.814 26.648l-.116 38.537H.145v-41.69zm130.98 38.801c-.523 0-.914-.405-.914-.928 0-.524.391-.929.913-.929.528 0 .913.405.913.929 0 .523-.385.928-.913.928zm2.508-2.443H135c.019.742.56 1.24 1.354 1.24.888 0 1.391-.535 1.391-1.539v-6.356h1.391v6.362c0 1.808-1.043 2.849-2.77 2.849-1.62 0-2.732-1.01-2.732-2.556zm7.322-.08h1.379c.118.853.95 1.395 2.149 1.395 1.117 0 1.937-.58 1.937-1.377 0-.685-.521-1.097-1.708-1.377l-1.155-.28c-1.62-.38-2.36-1.166-2.36-2.487 0-1.602 1.304-2.668 3.26-2.668 1.82 0 3.15 1.066 3.23 2.58h-1.354c-.13-.828-.85-1.346-1.894-1.346-1.1 0-1.832.53-1.832 1.34 0 .642.472 1.01 1.64 1.284l.987.243c1.838.43 2.596 1.178 2.596 2.53 0 1.72-1.33 2.799-3.453 2.799-1.987 0-3.323-1.029-3.422-2.637z" fill="#fff" fill-rule="nonzero"></path></svg>
+						<img src="img/logo/nuxt.svg" alt="nuxt">
+						<img src="img/logo/angular.svg" alt="angular">
+					</div>
+				</section>
+				<section>
+					<h2>Na(t)ive&trade; mobile&trade; experience&trade;</h2>
+					<img src="img/mobile-app-effor-vs-ux.svg" alt="effort (technology) vs ux" style="border: 10px solid white !important; width: auto !important; height: 400px !important; background: white !important;">
+				</section>
+				<section>
+					<h2>Connecting to the backend</h2>
+					<div style="display: flex; justify-content: space-around; align-items: center;">
+						<span style="font-size: 64px;">RPC</span>
+						<img src="img/logo/rest-api.png" alt="rest api" style="width: auto !important; height: 160px !important; margin: 0 40px !important;">
+						<img src="img/logo/GraphQL.svg" alt="GraphQL" style="width: auto !important; height: 160px !important;">
+					</div>
+				</section>
+				<section>
+					<h2>APIs work best when both sides assume the other side is an idiot.</h2>
+				</section>
+				<section data-background="img/plugincloud.png">
+					<h2 style="text-shadow: 0 0 8px black;">Into the cloud!</h2>
+					<h4 class="fragment" style="text-shadow: 0 0 8px black;">or, at least, docker</h4>
+				</section>
+				<section>
+					<h2>Building the app</h2>
+				</section>
+				<section>
+					<h2>Don't</h2>
+					<pre><code class="hljs" data-trim>
+						FROM ...
+						COPY backend/ frontend/ admin/ proxy/ .
+					</code></pre>
+				</section>
+				<section>
+					<h2>Do</h2>
+					<div style="display: flex; justify-content: space-between;">
+						<pre style="width: 300px !important;"><code class="hljs" data-trim>
+							FROM ...
+							COPY backend/ .
+						</code></pre>
+						<pre style="width: 300px !important;"><code class="hljs" data-trim>
+							FROM ...
+							COPY frontend/ .
+						</code></pre>
+						<pre style="width: 300px !important;"><code class="hljs" data-trim>
+							FROM ...
+							COPY admin/ .
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h2>Don't</h2>
+					<pre><code class="hljs" data-trim>
+						FROM node:10-alpine
+						RUN apk update && apk add perl && perl ...
+					</code></pre>
+				</section>
+				<section>
+					<h2>Do</h2>
+					<pre><code class="hljs" data-trim>
+						FROM node:10
+						RUN perl ...
+					</code></pre>
+				</section>
+				<section>
+					<h2>Don't<span class="fragment">?</span></h2>
+					<pre><code class="hljs" data-trim>
+						RUN npm install
+						RUN npm build
+						CMD node app.js
+					</code></pre>
+				</section>
+				<section>
+					<h2>Do multi-stage builds</h2>
+					<pre><code class="hljs" data-trim>
+						FROM node:10 as builder
+						RUN npm ci
+						...
+
+						FROM node:10-alpine
+						RUN NODE_ENV=production npm ci
+						COPY --from=builder dist/ /www/app/
+					</code></pre>
+				</section>
+				<section>
+					<h2>Do layers optimization</h2>
+					<div style="display: flex; align-items: flex-start;">
+						<pre style="margin: 0;"><code class="hljs" data-trim>
+							FROM ... as builder
+								
+							RUN apk add \
+								foo \
+								bar
+							COPY package.json \
+								package-lock.json \
+								.npmrc \
+								.
+							RUN npm ci
+							COPY . /root/
+							RUN npm test \
+								&& npm build
+							RUN npm run test:e2e
+						</code></pre>
+						<pre style="margin: 0 0 0 40px;"><code class="hljs" data-trim>
+							FROM ...
+							
+							COPY package.json \
+								package-lock.json \
+								.npmrc \
+								.
+							RUN NODE_ENV=production npm ci
+							COPY --from=builder ...
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h2>Don't</h2>
+					<pre><code class="hljs" data-trim>
+						FROM ...
+
+						COPY ...
+						RUN ...
+
+						ENV NODE_ENV=production
+						ENV REALM=production
+						ENV TLD=com
+						CMD start.sh
+						EXPOSE 80
+						ARG VERSION
+						LABEL APP=my-app
+						LABEL VERSION=1.0.0
+					</code></pre>
+				</section>
+				<section>
+					<h2>Do</h2>
+					<pre><code class="hljs" data-trim>
+						FROM ...
+
+						ENV NODE_ENV=production \
+							REALM=production \
+							TLD=com
+						CMD start.sh
+						EXPOSE 80
+						LABEL APP=my-app
+						ARG VERSION
+
+						COPY ...
+						RUN ...
+
+						LABEL VERSION=$VERSION
+					</code></pre>
+				</section>
+				<section>
+					<h2>Don't</h2>
+					<div style="display: flex; align-items: flex-start;">
+						<pre style="margin: 0;"><code class="hljs" data-trim>
+							FROM ... as builder
+								
+							RUN setup-repository
+
+							...
+						</code></pre>
+						<pre style="margin: 0 0 0 40px;"><code class="hljs" data-trim>
+							FROM ...
+							
+							RUN setup-repository
+
+							...
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h2>Do</h2>
+					<div style="display: flex; align-items: flex-start;">
+						<div style="width: 50%;">
+							<pre style="margin: 0 0 30px 0;"><code class="hljs" data-trim>
+								FROM ... as base
+									
+								RUN setup-repository
+							</code></pre>
+							<pre style="margin: 0;"><code class="hljs" data-trim>
+								FROM base as builder
+									
+								...
+							</code></pre>
+						</div>
+						<pre style="margin: 0 0 0 40px; width: calc(50% - 40px);"><code class="hljs" data-trim>
+							FROM base
+							
+							...
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h2>Hardcore E2E tests</h2>
+					<div style="display: flex; align-items: flex-start;">
+						<div style="width: 50%;">
+							<pre style="margin: 0 0 30px 0;"><code class="hljs" data-trim>
+								FROM ... as base
+									
+								RUN setup-repository
+							</code></pre>
+							<pre style="margin: 0;"><code class="hljs" data-trim>
+								FROM base as builder
+									
+								...
+							</code></pre>
+						</div>
+						<div style="margin-left: 40px; width: calc(50% - 40px);">
+							<pre style="margin-top: 0;"><code class="hljs" data-trim>
+								FROM base as artifact
+								
+								...
+							</code></pre>
+							<pre><code class="hljs" data-trim>
+								FROM artifact as e2e-runner
+								
+								RUN npm run test:e2E
+							</code></pre>
+							<pre><code class="hljs" data-trim>
+								FROM artifact
+							</code></pre>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h2>Serving an SPA</h2>
+					<pre><code class="hljs" data-trim>
+						FROM nginx:latest
+
+						COPY --from=builder ...
+					</code></pre>
+				</section>
+				<section>
+					<h2>Serving an SPA</h2>
+					<p>&hellip; or just use a static web hosting, e.g.&nbsp;Amazon&nbsp;S3&nbsp;+&nbsp;Cloudfront</p>
+				</section>
+				<section>
+					<h2>Release often, fail early</h2>
+				</section>
+				<section>
+					<h2>Testing in production</h2>
+					<img src="img/this-is-fine-dog.jpg" alt="" class="fragment">
+				</section>
+				<section>
+					<h2>Test in CI<span class="fragment">, fail in CI</span></h2>
+					<img src="img/chuck-norris-approves.jpg" alt="" class="fragment">
+				</section>
+				<section data-background="img/testing.jpg"></section>
+				<section>
+					<div style="position: relative; margin: auto; width: 700px; height: 400px;">
+						<div style="position: absolute; right: 0; top: 30%">unit tests</div>
+						<div style="position: absolute; left: 22%; top: 44%;">component tests</div>
+						<div style="position: absolute; left: 0; top: 16%;">integration tests</div>
+						<div style="position: absolute; left: 10%; top: 70%;">regression tests</div>
+						<div style="position: absolute; right: 4%; top: 0;">end-to-end (E2E) tests</div>
+					</div>
+				</section>
+				<section>
+					<h2>Type check</h2>
+					<img src="img/type-check.png" alt="" style="width: auto !important; height: 300px !important;">
+				</section>
+				<section>
+					<div style="display: flex; justify-content: space-around; align-items: center;">
+						<img src="img/logo/flow-typed.png" alt="flow typed" style="width: auto !important; height: 160px !important; background: rgba(255, 255, 255, 0.8) !important;">
+						<img src="img/logo/typescript.svg" alt="typescript" style="width: auto !important; height: 160px !important;">
+					</div>
+				</section>
+				<section>
+					<h2>Common(?) knowledge</h2>
+					<p>unit/integration/e2e tests</p>
+				</section>
+				<section>
+					<h2>Testing components</h2>
+					<p class="fragment">snapshots</p>
+					<p class="fragment">end-to-end</p>
+				</section>
+				<section>
+					<h2>regression tests</h2>
+					<img src="img/regression-testing.png" alt="">
+				</section>
+				<section>
+					<h2>Running order, complexity, maintantance and running</h2>
+					<div style="display: flex; justify-content: center;">
+						<div style="margin-right: 20px;">
+							<div style="position: relative; width: 60px; height: 60px; transform: rotate(-90deg); transform-origin: center;">
+								<div style="position: absolute; right: 30px; width: 310px; height: 60px;">
+									<div style="position: absolute; left: 0; bottom: 10px; width: calc(100% - 10px); height: 4px; background: currentColor;"></div>
+									<div style="position: absolute; right: 0; bottom: 0px; width: 0; height: 0; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 12px solid currentColor;"></div>
+									<div style="position: absolute; right: 20px; bottom: 12px;">complexity</div>
+								</div>
+							</div>
+						</div>
+						<ul>
+							<li>application E2E</li>
+							<li>regression</li>
+							<li>component E2E</li>
+							<li>integration</li>
+							<li>snapshot</li>
+							<li>unit</li>
+							<li>types</li>
+						</ul>
+						<div style="margin-left: 20px;">
+							<div style="position: relative; width: 60px; height: 60px; transform: rotate(90deg); transform-origin: center;">
+								<div style="position: absolute; left: 30px; width: 310px; height: 60px;">
+									<div style="position: absolute; left: 0; bottom: 10px; width: calc(100% - 10px); height: 4px; background: currentColor;"></div>
+									<div style="position: absolute; right: 0; bottom: 0px; width: 0; height: 0; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 12px solid currentColor;"></div>
+									<div style="position: absolute; right: 20px; bottom: 12px;">test count</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section data-background="img/you-are-being-monitored.svg"></section>
+				<section data-background="img/shrodinger-krasty.jpg">
+					<h2 style="text-shadow: 0 0 8px black, 0 0 8px black;">Shroedinger's application</h2>
+					<p style="text-shadow: 0 0 8px black, 0 0 8px black;">
+						An application is in a superposition of the alive and dead states until we monitor it and collapse the state function.
+					</p>
+				</section>
+				<section>
+					<h2>Smoke test</h2>
+					<img src="img/smoke-testing.png" alt="">
+				</section>
+				<section>
+					<div style="display: flex; justify-content: space-around;">
+						<div>
+							<h2>404</h2>
+							<img src="img/404.jpg" alt="" style="width: auto !important; height: 300px !important;">
+						</div>
+						<div>
+							<h2>4**</h2>
+							<img src="img/teapot.jpg" alt="" style="width: auto !important; height: 300px !important;">
+						</div>
+					</div>
+				</section>
+				<section>
+					<h2>500</h2>
+					<img src="img/explosion.jpg" alt="" style="width: auto !important; height: 450px !important;">
+				</section>
+				<section>
+					<h2>Container failures</h2>
+					<img src="img/tsar-bomba.jpg" alt="" style="width: auto !important; height: 450px !important;">
+				</section>
+				<section>
+					<h2>Server error frequency</h2>
+					<img src="img/error-frequency.jpg" alt="" style="width: auto !important; height: 450px !important;">
+				</section>
+				<section>
+					<h2>Response time histogram</h2>
+				</section>
+				<section>
+					<h2>Server load</h2>
+					<img src="img/server-load.jpg" alt="" style="width: auto !important; height: 450px !important;">
+				</section>
+				<section>
+					<h2><em>Maximum</em> memory usage</h2>
+					<img src="img/itsover9000.jpg" alt="" style="width: auto !important; height: 450px !important;">
+				</section>
+				<section>
+					<h2>Client-side errors</h2>
+					<img src="img/fail.jpg" alt="" style="width: auto !important; height: 450px !important;">
+				</section>
+				<section>
+					<h2>Monigoring tools</h2>
+					<div style="display: flex; justify-content: space-around;">
+						<img src="img/logo/prometheus.png" alt="prometheus" style="width: auto !important; height: 200px !important;">
+						<img src="img/logo/grafana.png" alt="grafana" style="width: auto !important; height: 200px !important;">
+					</div>
+					<p class="fragment">&hellip;and many others</p>
+				</section>
+				<section>
+					<h2>Takeaways</h2>
+					<ul>
+						<li class="fragment">do not over-complicate things</li>
+						<li class="fragment">multi-stage docker builds, small containers</li>
+						<li class="fragment">do not write test for tests but for yourself</li>
+						<li class="fragment">be informed what's going on in production</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Thank you</h2>
+					<h4>Questions?</h4>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+				controlsTutorial: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
