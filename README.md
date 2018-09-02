@@ -25,6 +25,14 @@ No actual slides were presented. Only code that lives in the separate [repo](htt
 | Microservices by try & error | [Jan Porhinčák](https://github.com/KeNaCo) | [Slides](https://github.com/CloudNativeCZ/talks/blob/master/Cloud%20Native%20Brno%20%234/porhincak-microservices_try-error.pdf) |
 | Frontend, containers & practices | [Martin Jurča](https://github.com/jurca) | [Slides](https://github.com/CloudNativeCZ/talks/tree/master/Cloud%20Native%20Brno%20%234/jurca-frontend_containers) |
 
+### Cloud Native Brno #5
+
+| Name of the Talk  | Speaker     | Slide Deck |
+| ----------- | ----------- | ---------- |
+| Monitoring | Dušan Katona & Jakub Coufal | [Slides]() |
+| Container networking | [Petr Horáček](https://github.com/phoracek) | [Slides](https://github.com/CloudNativeCZ/talks/blob/master/Cloud%20Native%20Brno%20%235/horacek-Container_Networking.pdf) |
+
+
 <p align="center">
   <img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License"/>
 </p>
